@@ -7,6 +7,9 @@ pipeline {
     environment { 
         COURSE = "Jenkins"
     }
+     options {
+        timeout(time: 1, unit: 'HOURS') 
+    }
     stages {
         stage('Build') {
             steps {
@@ -15,6 +18,7 @@ pipeline {
                  sh  """
                     echo "Building"
                     echo $COURSE
+                    sleep 10
                     env
 
                     """
