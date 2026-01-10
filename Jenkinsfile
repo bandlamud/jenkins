@@ -22,6 +22,7 @@ pipeline {
 
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
+    // this is the build section
     stages {
         stage('Build') {
             steps {
