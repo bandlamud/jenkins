@@ -22,24 +22,28 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh """
-                    echo "Building"
-                    echo $COURSE
-                    sleep 10
-                    echo "Hello ${params.PERSON}"
-                    echo "Biography: ${params.BIOGRAPHY}"
-                    echo "Deploy: ${params.DEPLOY}"
-                    echo "Choice: ${params.CHOICE}"
-                    echo "Password: ${params.PASSWORD}"
-                    env
-                """
+                script {
+                    sh """
+                        echo "Building"
+                        echo $COURSE
+                        sleep 10
+                        echo "Hello ${params.PERSON}"
+                        echo "Biography: ${params.BIOGRAPHY}"
+                        echo "Deploy: ${params.DEPLOY}"
+                        echo "Choice: ${params.CHOICE}"
+                        echo "Password: ${params.PASSWORD}"
+                        env
+                    """
+                }
             }
         }
         stage('Test') {
             steps {
-                sh """
-                    echo "Testing"
-                """
+                script {
+                    sh """
+                        echo "Testing"
+                    """
+                }
             }
         }
         stage('Deploy') {
@@ -56,9 +60,12 @@ pipeline {
 
                 }
             steps {
-                sh """
+                script {
+                    sh """
                     echo "Deploying"
-                """
+                    """
+                }
+                
             }
         }
     }
