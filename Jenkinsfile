@@ -53,8 +53,8 @@ pipeline {
             }
             when {
                 expression { "$params.DEPLOY"  == "true" }
+                
                 }
-            }
             steps {
                 sh """
                     echo "Deploying"
