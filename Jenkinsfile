@@ -18,7 +18,7 @@ pipeline {
 
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
 
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
@@ -33,6 +33,13 @@ pipeline {
                      echo "Building"
                      echo $COURSE
                      sleep 10
+                     steps {
+                    echo "Hello ${params.PERSON}"
+                    echo "Biography: ${params.BIOGRAPHY}"
+                    echo "Deploy: ${params.TOGGLE}"
+                    echo "Choice: ${params.CHOICE}"
+                    echo "Password: ${params.PASSWORD}"
+            }
                      env
 
                     """
