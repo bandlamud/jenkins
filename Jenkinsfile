@@ -29,10 +29,10 @@ pipeline {
             cleanWs()
             }
         }
-        success{
+        success {
             echo 'I will run if success'
         }
-        failure{
+        failure {
             echo 'I will run if failure'
         }
 }
