@@ -30,16 +30,14 @@ pipeline {
                 script {
 
                     sh """
-                     echo "Building"
-                     echo $COURSE
-                     sleep 10
-                     steps {
+                    echo "Building"
+                    echo $COURSE
+                    sleep 10
                     echo "Hello ${params.PERSON}"
                     echo "Biography: ${params.BIOGRAPHY}"
                     echo "Deploy: ${params.TOGGLE}"
                     echo "Choice: ${params.CHOICE}"
                     echo "Password: ${params.PASSWORD}"
-            }
                      env
 
                     """
